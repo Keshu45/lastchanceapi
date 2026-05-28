@@ -1,0 +1,14 @@
+[build]
+  command = "npm run build:client"
+  publish = "client/dist"
+
+[build.environment]
+  NODE_ENV = "production"
+  # You will need to add VITE_API_URL in Netlify's Environment Variables settings
+  # Point it to your Render backend URL (e.g. VITE_API_URL="https://your-backend.onrender.com/api")
+
+[[redirects]]
+  # This handles React Router's client-side routing
+  from = "/*"
+  to = "/index.html"
+  status = 200

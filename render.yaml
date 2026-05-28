@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: fullstack-ai-backend
+    env: node
+    # Running from root ensures we use the workspace's package-lock.json
+    buildCommand: npm install --include=dev && npm run build:server
+    startCommand: npm run start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        sync: false
